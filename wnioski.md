@@ -1,27 +1,26 @@
 Wnioski:
 
-Obserwacje poszczególnych hiperparametrów:
+Obserwacje poszczególnych hiperparametrów na podstawie kilkudzięsieciu uruchomień algorytmu dla różnych wartości hiperparametrów:
 
-- generations - im większa liczba tym lepsze wyniki, wykresy wskazywałyby, że od 70 nie ma sensu zwiększać liczby generacji, ale wtedy zmniejsza się poprawność innych parametrów, więc bezpieczną i optymalną liczbą jest 200,
-bo większa liczba nie wpływa to zbytnio na wyniki a spowalnia działania algorytmu.
+- generations - im większa liczba tym lepsze wyniki na ogół, ale od wartości 100 (ewentualnie do 200 ale te różnice też nie są zbyt zauważalne) nie ma sensu zwiększać liczby generacji,
+bo większa liczba nie wpływa już zbytnio na wyniki a spowalnia działania algorytmu.
 
 - population_size - im większa populacja tym większa różnorodność, a za tym powinny być dokładniejsze wyniki,
 ale nie ma sensu za bardzo spowalniać programu, gdy zmiany nie są zauważalne już po około 50 osobnikach.
 
-- crossover_rate - dla dystybucji losowej najlepszy jest w od 0.8 do 0.84 (dla większych wartości wyniki są gorsze), a
-dla rozkładu normalnego wyniki ogólnie są nie za dobre, ale najlepsze są dla wartości 0.87.
+- crossover_rate - każda wartość z danego przedziału 0.8-0.95 daje całkiem dobre wyniki, ale dla wartości 0.9 wyniki są najlepsze
 
-- mutation_rate - dobre wyniki są dla wartosci 0.1, dla mniejszych wartości mutacje zachodzą zbyt rzadko,
+- mutation_rate - dobre wyniki są dla wartosci 0.1, dla mniejszych wartości mutacje mogą zachodzić zbyt rzadko,
 a dla większych mogą zachodzić zbyt drastyczne zmiany w ciągu jednej generacji.
 
-- mutation_range - wartość 0.7 jest dobra, dla mniejszych zmiany mogą być zbyt małe przez co nie zdąży zbiec do minimum, a dla większych zbyt duże mogą powodować przeskoki przez minimum, ewentualnie dla o wiele za dużych wartości może zacząć zbiegać do innego minimum.
+- mutation_range - wartość 0.3 jest dobra, dla mniejszych zmiany mogą być zbyt małe przez co nie zdąży zbiec do minimum, a dla większych zazwyczaj kilku osobników zbiega do minimum, ale duża cześć przeskakuje minimum i znajduje się ostatecznie z dala od niego.
 
 Z moich obserwacji wynika że całkiem dobrymi parametrami, wystarczającymi by całkiem dokładnie oszacować wyniki są:
-- generations = 200
+- generations = 100
 - population_size = 50
-- crossover_rate = 0.90
+- crossover_rate = 0.85
 - mutation_rate = 0.1
-- mutation_range = 0.7
+- mutation_range = 0.3
 
 Wpływ hiperparametrów na to do którego minimum będzie zbiegał algorytm (współrzędne f1):
 
